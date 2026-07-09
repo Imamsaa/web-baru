@@ -1,0 +1,74 @@
+/* Import Google Fonts Poppins */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Transisi Halus untuk SPA */
+.view-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Class active akan ditampilkan via JavaScript */
+.view-section.active {
+    display: block;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Gradient menyesuaikan screenshot */
+.gradien-bg {
+    background: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
+}
+
+/* Sembunyikan scrollbar tapi tetap bisa scroll (Opsional untuk estetika) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #c084fc; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9333ea; 
+}
+
+/* ========================================================
+   STYLING KHUSUS UNTUK MESIN CETAK / PDF (MEDIA PRINT)
+======================================================== */
+/* ========================================================
+   STYLING KHUSUS UNTUK MESIN CETAK / PDF (MEDIA PRINT)
+======================================================== */
+@media print {
+    /* 1. Sembunyikan SEMUA elemen di dalam body kecuali area cetak */
+    body > *:not(#print-area) {
+        display: none !important;
+    }
+
+    /* 2. Bersihkan warna background bawaan web */
+    body {
+        background-color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Tampilkan hanya Dokumen Cetak */
+    #print-area {
+        display: block !important;
+        width: 100%;
+        color: black !important;
+    }
+
+    /* Hilangkan margin kertas bawaan browser agar rapi */
+    @page {
+        margin: 2cm;
+    }
+}

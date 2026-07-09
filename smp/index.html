@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPS SMPIT Al Firdaus Purwodadi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1d4ed8', // Biru
+                        secondary: '#6d28d9', // Ungu
+                        darkbg: '#1e1b4b' // Ungu Gelap Footer
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3"> <div class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Logo SMPIT Al Firdaus" class="h-10 w-auto object-contain">
+                    <h1 class="font-bold text-xl text-gray-900 hidden sm:block">SMPIT Al Firdaus Purwodadi</h1>
+                </div>
+                <nav class="flex gap-6 font-medium text-sm">
+                    <button onclick="navigateTo('daftar')" id="nav-daftar" class="text-gray-500 hover:text-primary transition-colors">Daftar</button>
+                    <button onclick="navigateTo('brosur')" id="nav-brosur" class="text-primary font-bold border-b-2 border-primary transition-colors">Brosur</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative w-full">
+        
+        <img src="assets/bgheader.png" alt="Banner SMPIT Al Firdaus" class="w-full h-auto min-h-[160px] sm:min-h-[250px] object-cover object-center">
+        
+        <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-[4rem] font-extrabold text-[#1f2937] mb-0 sm:mb-1 md:mb-2 tracking-tight">
+                SMP Islam Terpadu
+            </h2>
+            
+            <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-[4rem] font-extrabold text-[#c026d3] tracking-tight">
+                Al Firdaus Purwodadi
+            </h2>
+        </div>
+        
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        
+        <!-- ================= VIEW: BROSUR ================= -->
+        <div id="view-brosur" class="view-section active">
+            <div class="text-center mb-10">
+                <h4 class="text-2xl font-bold border-b-4 border-secondary inline-block pb-2">BROSUR SEKOLAH</h4>
+            </div>
+
+            <!-- Konten Gambar Brosur -->
+            <div class="flex flex-col gap-6 md:gap-10 max-w-5xl mx-auto px-2 sm:px-0">
+                <!-- Brosur Halaman 1 -->
+                <img src="assets/br1.jpg" alt="Brosur SMPIT Al Firdaus Halaman 1" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-[1.01]">
+                
+                <!-- Brosur Halaman 2 -->
+                <img src="assets/br2.jpg" alt="Brosur SMPIT Al Firdaus Halaman 2" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-[1.01]">
+            </div>
+        </div>
+
+        <div id="view-daftar" class="view-section hidden">
+            <div class="text-center mb-10">
+                <h4 class="text-2xl font-bold border-b-4 border-secondary inline-block pb-2">FORMULIR PENDAFTARAN</h4>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 md:p-10 max-w-4xl mx-auto">
+                
+                <div class="mb-8 relative">
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                        <div id="progress-bar" style="width: 25%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary transition-all duration-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs font-bold text-gray-500" id="step-indicators">
+                        <span class="text-primary">Siswa</span>
+                        <span>Ayah</span>
+                        <span>Ibu</span>
+                        <span>Wali & Kontak</span>
+                    </div>
+                </div>
+
+                <form id="formPendaftaran">
+                    
+                    <div class="form-step" id="step-0">
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 1: Data Diri Siswa</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap *</label>
+                                <input type="text" name="namaSiswa" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">NISN *</label>
+                                <input type="text" name="nisn" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Asal Sekolah *</label>
+                                <input type="text" name="asalSekolah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Jenis Kelamin *</label>
+                                <select name="jenisKelamin" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pilihan Program *</label>
+                                <select name="pilihanProgram" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                    <option value="">Pilih Program</option>
+                                    <option value="ICP">International Class Program (ICP)</option>
+                                    <option value="ICT">Information & Communication Technology (ICT)</option>
+                                    <option value="TCP">Tahfidz Class Program (TCP)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tempat Lahir *</label>
+                                <input type="text" name="tempatLahir" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahir" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
+                                <textarea name="alamat" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Kecamatan *</label>
+                                <input type="text" name="kecamatan" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Kabupaten *</label>
+                                <input type="text" name="kabupaten" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Provinsi *</label>
+                                <input type="text" name="provinsi" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Agama *</label>
+                                <input type="text" name="agama" value="Islam" readonly class="mt-1 block w-full rounded-md border-gray-300 bg-gray-100 text-gray-600 shadow-sm cursor-not-allowed focus:border-gray-300 focus:ring-0">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Anak Ke *</label>
+                                <input type="number" name="anakKe" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-end">
+                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step hidden" id="step-1">
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 2: Data Diri Ayah</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap *</label>
+                                <input type="text" name="namaAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pendidikan *</label>
+                                <select name="pendidikanAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                    <option value="">Pilih Pendidikan</option>
+                                    <option value="SD">SD/Sederajat</option>
+                                    <option value="SMP">SMP/Sederajat</option>
+                                    <option value="SMA">SMA/SMK/Sederajat</option>
+                                    <option value="D3">Diploma (D1/D2/D3)</option>
+                                    <option value="S1">Sarjana (S1/D4)</option>
+                                    <option value="S2">Magister (S2)</option>
+                                    <option value="S3">Doktor (S3)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tempat Lahir *</label>
+                                <input type="text" name="tempatLahirAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahirAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
+                                <textarea name="alamatAyah" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pekerjaan *</label>
+                                <input type="text" name="pekerjaanAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
+                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step hidden" id="step-2">
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 3: Data Diri Ibu</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap *</label>
+                                <input type="text" name="namaIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pendidikan *</label>
+                                <select name="pendidikanIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                    <option value="">Pilih Pendidikan</option>
+                                    <option value="SD">SD/Sederajat</option>
+                                    <option value="SMP">SMP/Sederajat</option>
+                                    <option value="SMA">SMA/SMK/Sederajat</option>
+                                    <option value="D3">Diploma (D1/D2/D3)</option>
+                                    <option value="S1">Sarjana (S1/D4)</option>
+                                    <option value="S2">Magister (S2)</option>
+                                    <option value="S3">Doktor (S3)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tempat Lahir *</label>
+                                <input type="text" name="tempatLahirIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahirIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
+                                <textarea name="alamatIbu" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pekerjaan *</label>
+                                <input type="text" name="pekerjaanIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
+                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step hidden" id="step-3">
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 4: Data Wali & Kontak</h5>
+                        
+                        <div class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" id="checkboxWali" name="isWali" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary transition duration-150 ease-in-out">
+                                <span class="ml-3 text-sm font-bold text-gray-800">Calon siswa tinggal bersama Wali</span>
+                            </label>
+                            <p class="mt-1 text-xs text-gray-500 ml-8">Centang kotak ini apabila pendaftar tinggal bersama wali (selain Ayah/Ibu kandung).</p>
+                        </div>
+
+                        <div id="containerWali" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 hidden border-l-4 border-primary pl-4 py-2 transition-all duration-300">
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap Wali</label>
+                                <input type="text" name="namaWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Hubungan dengan Siswa</label>
+                                <input type="text" name="hubunganWali" placeholder="Contoh: Paman, Nenek, Kakak" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pendidikan</label>
+                                <select name="pendidikanWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                    <option value="">Pilih Pendidikan</option>
+                                    <option value="SD">SD/Sederajat</option>
+                                    <option value="SMP">SMP/Sederajat</option>
+                                    <option value="SMA">SMA/SMK/Sederajat</option>
+                                    <option value="D3">Diploma (D1/D2/D3)</option>
+                                    <option value="S1">Sarjana (S1/D4)</option>
+                                    <option value="S2">Magister (S2)</option>
+                                    <option value="S3">Doktor (S3)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tempat Lahir</label>
+                                <input type="text" name="tempatLahirWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
+                                <input type="date" name="tanggalLahirWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
+                                <textarea name="alamatWali" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700">Pekerjaan</label>
+                                <input type="text" name="pekerjaanWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 mb-6">
+                            <label class="block text-sm font-bold text-gray-800">Nomor WhatsApp Aktif *</label>
+                            <input type="tel" name="noWa" placeholder="0812xxxxxx" required class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 text-lg py-2">
+                            <p class="text-xs text-gray-600 mt-2">Pastikan nomor aktif. Informasi pendaftaran akan dikirim ke nomor ini.</p>
+                        </div>
+
+                        <div class="mt-8 flex justify-between items-center">
+                            <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">SUBMIT PENDAFTARAN</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div id="view-sukses" class="view-section hidden">
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg border border-gray-100 p-8 md:p-12 text-center mt-4 sm:mt-10">
+                
+                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                
+                <h4 class="text-3xl font-extrabold text-gray-900 mb-2">Pendaftaran Berhasil!</h4>
+                <p class="text-gray-600 mb-6 text-lg">
+                    Alhamdulillah, data pendaftaran atas nama <strong id="nama-sukses" class="text-primary text-xl uppercase">Calon Siswa</strong> telah berhasil masuk ke sistem kami.
+                </p>
+                
+                <div class="bg-blue-50 rounded-lg p-5 mb-8 text-sm text-left text-blue-800 border border-blue-100">
+                    <p class="mb-3 text-base font-bold flex items-center gap-2">
+                        <span>📝</span> Langkah Selanjutnya:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Mohon simpan tangkapan layar (screenshot) halaman ini sebagai bukti.</li>
+                        <li>Admin kami akan segera menghubungi Bapak/Ibu melalui nomor WhatsApp yang didaftarkan.</li>
+                        <li>Mempersiapkan berkas fisik (Akta, KK, Ijazah/SKL) untuk verifikasi nanti.</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="window.print()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-full transition-colors flex items-center justify-center gap-2">
+                        <span>🖨️</span> Cetak Bukti
+                    </button>
+                    <button onclick="navigateTo('brosur')" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                        Selesai & Kembali
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="gradien-bg text-white py-12 text-center mt-auto">
+        <h3 class="text-2xl font-bold mb-2">Masih ada pertanyaan?</h3>
+        <p class="mb-6 opacity-90">Kami siap membantu menjawab pertanyaan Anda</p>
+        
+        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto mb-6">
+            <h4 class="font-bold text-xl mb-1">Brosur Sekolah</h4>
+            <p class="text-sm mb-4">Brosur Pendaftaran Lembaga Pendidikan Islam Terpadu Al Firdaus Purwodadi</p>
+            <button onclick="navigateTo('brosur')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition-colors text-sm">
+                UNDUH BROSUR
+            </button>
+        </div>
+
+        <div class="bg-white text-secondary rounded-full py-3 px-6 inline-block font-bold text-sm shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+            Hubungi Customer Service Kami: <a href="https://wa.me/6281234567890" class="underline">+62 812-3456-7890</a>
+        </div>
+    </section>
+
+    <footer class="bg-darkbg text-gray-300 py-10 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <img src="assets/logo.png" alt="Logo SMPIT Al Firdaus" class="h-10 w-auto object-contain">
+                    <h5 class="font-bold text-white">PPS SMPIT Al Firdaus</h5>
+                </div>
+                <p class="opacity-75">Sistem Penjaminan Mutu internal untuk meningkatkan kualitas pendidikan di LPI Al Firdaus secara berkelanjutan.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-4">Link Cepat</h5>
+                <ul class="space-y-2 opacity-75">
+                    <li><button onclick="navigateTo('daftar')" class="hover:text-white transition-colors">→ Daftar</button></li>
+                    <li><a href="#" class="hover:text-white transition-colors">→ Syarat</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">→ Waktu</a></li>
+                    <li><button onclick="navigateTo('brosur')" class="hover:text-white transition-colors">→ Brosur</button></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-4">Layanan Kami</h5>
+                <ul class="space-y-2 opacity-75">
+                    <li>→ SMPIT Al Firdaus Purwodadi</li>
+                    <li>→ SDIT Al Firdaus Purwodadi</li> <li>→ TKIT Al Firdaus Purwodadi</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-4">Hubungi Kami</h5>
+                <ul class="space-y-2 opacity-75">
+                    <li class="flex items-start gap-2">
+                        <span>📍</span> Jl. Taman Makam Pahlawan No. 10, Purwodadi, Jawa Tengah
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>✉️</span> smpit.alfirdaus@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-10 opacity-50 text-xs">
+            &copy; 2026 LPI Al Firdaus Purwodadi. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <div id="print-area" class="hidden">
+        <div style="display: flex; align-items: center; border-bottom: 4px solid black; padding-bottom: 15px; margin-bottom: 20px;">
+            <img src="assets/logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
+            <div style="flex-grow: 1; text-align: center;">
+                <h3 style="margin: 0; font-size: 16px; font-weight: bold; text-transform: uppercase;">Panitia Pendataan Peminat Sekolah (PPS)</h3>
+                <h2 style="margin: 5px 0; font-size: 24px; font-weight: 900; text-transform: uppercase; color: #1d4ed8;">SMPIT Al Firdaus Purwodadi</h2>
+                <p style="margin: 0; font-size: 12px;">Jl. Taman Makam Pahlawan No. 10, Purwodadi, Grobogan, Jawa Tengah</p>
+                <p style="margin: 0; font-size: 12px;">Email: smpit.alfirdaus@gmail.com | Telp/WA: +62 812-3456-7890</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; font-size: 18px; font-weight: bold; text-decoration: underline; margin-bottom: 20px;">BUKTI PENDAFTARAN ONLINE</h3>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+            <tbody>
+                <tr>
+                    <td style="padding: 8px 0; width: 35%;"><strong>Waktu Pendaftaran</strong></td>
+                    <td style="padding: 8px 0;" id="print-waktu">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>Nama Calon Peserta Didik</strong></td>
+                    <td style="padding: 8px 0; font-size: 16px; font-weight: bold; text-transform: uppercase;" id="print-nama">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>NISN</strong></td>
+                    <td style="padding: 8px 0;" id="print-nisn">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>Asal Sekolah</strong></td>
+                    <td style="padding: 8px 0;" id="print-asal">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>Program Pilihan</strong></td>
+                    <td style="padding: 8px 0; font-weight: bold;" id="print-program">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>Nama Orang Tua / Wali</strong></td>
+                    <td style="padding: 8px 0;" id="print-ortu">: -</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;"><strong>Nomor WhatsApp Aktif</strong></td>
+                    <td style="padding: 8px 0;" id="print-wa">: -</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="border: 1px dashed #ccc; padding: 15px; margin-bottom: 30px; font-size: 12px;">
+            <strong style="display: block; margin-bottom: 5px;">Catatan Penting:</strong>
+            <ol style="margin: 0; padding-left: 15px;">
+                <li>Lembar bukti pendaftaran ini harap dicetak/disimpan dan dibawa saat tahap observasi atau daftar ulang.</li>
+                <li>Harap melengkapi dokumen persyaratan fisik (Fotokopi KK, Akta Kelahiran, dan Ijazah/SKL).</li>
+                <li>Informasi lebih lanjut akan disampaikan melalui nomor WhatsApp yang terdaftar.</li>
+            </ol>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; text-align: center; font-size: 14px; margin-top: 40px;">
+            <div style="width: 40%;">
+                <p style="margin-bottom: 80px;">Panitia PPS,</p>
+                <p style="font-weight: bold; text-decoration: underline;">( .......................................... )</p>
+            </div>
+            <div style="width: 40%;">
+                <p style="margin-bottom: 80px;">Orang Tua / Wali Siswa,</p>
+                <p style="font-weight: bold; text-decoration: underline;" id="print-ttd-ortu">( .......................................... )</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
