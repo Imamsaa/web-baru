@@ -223,20 +223,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const dataPendaftar = {
                 siswa: {
                     nama: formData.get('namaSiswa'),
-                    nisn: formData.get('nisn'),
+                    nik: formData.get('nik'),
                     asalSekolah: formData.get('asalSekolah'),
-                    jenisKelamin: formData.get('jenisKelamin'),
                     pilihanProgram: formData.get('pilihanProgram'),
                     tempatLahir: formData.get('tempatLahir'),
                     tanggalLahir: formData.get('tanggalLahir'),
                     alamatDetail: {
                         jalan: formData.get('alamat'),
+                        kelurahan: formData.get('kelurahan'),
                         kecamatan: formData.get('kecamatan'),
                         kabupaten: formData.get('kabupaten'),
                         provinsi: formData.get('provinsi')
                     },
                     agama: formData.get('agama'),
-                    anakKe: formData.get('anakKe')
+                    anakKe: formData.get('anakKe'),
+                    riwayat: formData.get('riwayat') || "-"
                 },
                 orangTua: {
                     ayah: {
@@ -244,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         pendidikan: formData.get('pendidikanAyah'),
                         tempatLahir: formData.get('tempatLahirAyah'),
                         tanggalLahir: formData.get('tanggalLahirAyah'),
-                        alamat: formData.get('alamatAyah'),
+                        alamat: formData.get('alamatAyah') || "-",
                         pekerjaan: formData.get('pekerjaanAyah')
                     },
                     ibu: {
@@ -252,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         pendidikan: formData.get('pendidikanIbu'),
                         tempatLahir: formData.get('tempatLahirIbu'),
                         tanggalLahir: formData.get('tanggalLahirIbu'),
-                        alamat: formData.get('alamatIbu'),
+                        alamat: formData.get('alamatIbu') || "-",
                         pekerjaan: formData.get('pekerjaanIbu')
                     }
                 },
@@ -280,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // KIRIM KE KOLEKSI: pps_smpit
-                const docRef = await addDoc(collection(db, "pps_sdit"), dataPendaftar);
+                const docRef = await addDoc(collection(db, "pps_rait"), dataPendaftar);
                 console.log("Sukses tersimpan dengan ID: ", docRef.id);
 
                 localStorage.setItem('lastSubmitTime', new Date().getTime().toString());
