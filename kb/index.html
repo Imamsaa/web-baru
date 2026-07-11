@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPS SMPIT Al Firdaus Purwodadi</title>
+    <title>PPS KBIT Al Firdaus Purwodadi</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1d4ed8', // Biru
-                        secondary: '#6d28d9', // Ungu
-                        darkbg: '#1e1b4b' // Ungu Gelap Footer
+                        primary: '#ec4899',   // Pink Utama (Pink-500)
+                        secondary: '#db2777', // Pink Gelap untuk aksen
+                        darkbg: '#831843'     // Pink Sangat Gelap (Maroon) untuk Footer
                     }
                 }
             }
@@ -26,8 +26,8 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3"> <div class="flex items-center gap-3">
-                    <img src="assets/logo.png" alt="Logo SMPIT Al Firdaus" class="h-10 w-auto object-contain">
-                    <h1 class="font-bold text-xl text-gray-900 hidden sm:block">SMPIT Al Firdaus Purwodadi</h1>
+                    <img src="assets/logo.png" alt="Logo KBIT Al Firdaus" class="h-10 w-auto object-contain">
+                    <h1 class="font-bold text-xl text-gray-900 hidden sm:block">KBIT Al Firdaus Purwodadi</h1>
                 </div>
                 <nav class="flex gap-6 font-medium text-sm">
                     <button onclick="navigateTo('daftar')" id="nav-daftar" class="text-gray-500 hover:text-primary transition-colors">Daftar</button>
@@ -39,11 +39,11 @@
 
     <section class="relative w-full">
         
-        <img src="assets/bgheader.png" alt="Banner SMPIT Al Firdaus" class="w-full h-auto min-h-[160px] sm:min-h-[250px] object-cover object-center">
+        <img src="assets/bgheader.png" alt="Banner KBIT Al Firdaus" class="w-full h-auto min-h-[160px] sm:min-h-[250px] object-cover object-center">
         
         <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
             <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-[4rem] font-extrabold text-[#1f2937] mb-0 sm:mb-1 md:mb-2 tracking-tight">
-                SMP Islam Terpadu
+                KB Islam Terpadu
             </h2>
             
             <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-[4rem] font-extrabold text-[#c026d3] tracking-tight">
@@ -64,10 +64,8 @@
             <!-- Konten Gambar Brosur -->
             <div class="flex flex-col gap-6 md:gap-10 max-w-5xl mx-auto px-2 sm:px-0">
                 <!-- Brosur Halaman 1 -->
-                <img src="assets/br1.jpg" alt="Brosur SMPIT Al Firdaus Halaman 1" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-[1.01]">
-                
-                <!-- Brosur Halaman 2 -->
-                <img src="assets/br2.jpg" alt="Brosur SMPIT Al Firdaus Halaman 2" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-[1.01]">
+                <img src="assets/br1.jpg" alt="Brosur KBIT Al Firdaus Halaman 1" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-[1.01]">
+            
             </div>
         </div>
 
@@ -92,20 +90,13 @@
 
                 <form id="formPendaftaran">
                     
+                    <!-- STEP 1: SISWA KBIT -->
                     <div class="form-step" id="step-0">
                         <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 1: Data Diri Siswa</h5>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap *</label>
-                                <input type="text" name="namaSiswa" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">NISN *</label>
-                                <input type="text" name="nisn" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Asal Sekolah *</label>
-                                <input type="text" name="asalSekolah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                <label class="block text-sm font-medium text-gray-700">Nama *</label>
+                                <input type="text" name="namaSiswa" placeholder="Nama Calon Peserta Didik" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700">Jenis Kelamin *</label>
@@ -113,15 +104,6 @@
                                     <option value="">Pilih Jenis Kelamin</option>
                                     <option value="Laki-laki">Laki-laki</option>
                                     <option value="Perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Pilihan Program *</label>
-                                <select name="pilihanProgram" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
-                                    <option value="">Pilih Program</option>
-                                    <option value="ICP">International Class Program (ICP)</option>
-                                    <option value="ICT">Information & Communication Technology (ICT)</option>
-                                    <option value="TCP">Tahfidz Class Program (TCP)</option>
                                 </select>
                             </div>
                             <div>
@@ -133,8 +115,8 @@
                                 <input type="date" name="tanggalLahir" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
-                                <textarea name="alamat" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                                <label class="block text-sm font-medium text-gray-700">Alamat *</label>
+                                <textarea name="alamat" rows="2" placeholder="Jalan/Desa/Kecamatan/Kabupaten" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700">Kecamatan *</label>
@@ -158,7 +140,7 @@
                             </div>
                         </div>
                         <div class="mt-8 flex justify-end">
-                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                            <button type="button" class="btn-next bg-primary hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
                         </div>
                     </div>
 
@@ -173,13 +155,7 @@
                                 <label class="block text-sm font-medium text-gray-700">Pendidikan *</label>
                                 <select name="pendidikanAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                                     <option value="">Pilih Pendidikan</option>
-                                    <option value="SD">SD/Sederajat</option>
-                                    <option value="SMP">SMP/Sederajat</option>
-                                    <option value="SMA">SMA/SMK/Sederajat</option>
-                                    <option value="D3">Diploma (D1/D2/D3)</option>
-                                    <option value="S1">Sarjana (S1/D4)</option>
-                                    <option value="S2">Magister (S2)</option>
-                                    <option value="S3">Doktor (S3)</option>
+                                    <option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option><option value="D3">D3</option><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option>
                                 </select>
                             </div>
                             <div>
@@ -191,8 +167,8 @@
                                 <input type="date" name="tanggalLahirAyah" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
-                                <textarea name="alamatAyah" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                                <label class="block text-sm font-medium text-gray-700">Alamat</label>
+                                <textarea name="alamatAyah" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700">Pekerjaan *</label>
@@ -201,7 +177,7 @@
                         </div>
                         <div class="mt-8 flex justify-between">
                             <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
-                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                            <button type="button" class="btn-next bg-primary hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
                         </div>
                     </div>
 
@@ -216,13 +192,7 @@
                                 <label class="block text-sm font-medium text-gray-700">Pendidikan *</label>
                                 <select name="pendidikanIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                                     <option value="">Pilih Pendidikan</option>
-                                    <option value="SD">SD/Sederajat</option>
-                                    <option value="SMP">SMP/Sederajat</option>
-                                    <option value="SMA">SMA/SMK/Sederajat</option>
-                                    <option value="D3">Diploma (D1/D2/D3)</option>
-                                    <option value="S1">Sarjana (S1/D4)</option>
-                                    <option value="S2">Magister (S2)</option>
-                                    <option value="S3">Doktor (S3)</option>
+                                    <option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option><option value="D3">D3</option><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option>
                                 </select>
                             </div>
                             <div>
@@ -234,8 +204,8 @@
                                 <input type="date" name="tanggalLahirIbu" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap *</label>
-                                <textarea name="alamatIbu" rows="2" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                                <label class="block text-sm font-medium text-gray-700">Alamat</label>
+                                <textarea name="alamatIbu" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700">Pekerjaan *</label>
@@ -244,42 +214,34 @@
                         </div>
                         <div class="mt-8 flex justify-between">
                             <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
-                            <button type="button" class="btn-next bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
+                            <button type="button" class="btn-next bg-primary hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Selanjutnya &raquo;</button>
                         </div>
                     </div>
 
                     <div class="form-step hidden" id="step-3">
-                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 4: Data Wali & Kontak</h5>
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Langkah 4: Data Diri Wali Siswa <span class="text-gray-500 font-normal text-sm">(Opsional)</span></h5>
                         
                         <div class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
                             <label class="flex items-center cursor-pointer">
                                 <input type="checkbox" id="checkboxWali" name="isWali" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary transition duration-150 ease-in-out">
-                                <span class="ml-3 text-sm font-bold text-gray-800">Calon siswa tinggal bersama Wali</span>
+                                <span class="ml-3 text-sm font-bold text-gray-800">Isi Data Wali Siswa</span>
                             </label>
-                            <p class="mt-1 text-xs text-gray-500 ml-8">Centang kotak ini apabila pendaftar tinggal bersama wali (selain Ayah/Ibu kandung).</p>
                         </div>
 
                         <div id="containerWali" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 hidden border-l-4 border-primary pl-4 py-2 transition-all duration-300">
-                            
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap Wali</label>
+                                <label class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
                                 <input type="text" name="namaWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Hubungan dengan Siswa</label>
-                                <input type="text" name="hubunganWali" placeholder="Contoh: Paman, Nenek, Kakak" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                                <label class="block text-sm font-medium text-gray-700">Hubungan dengan calon siswa</label>
+                                <input type="text" name="hubunganWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700">Pendidikan</label>
                                 <select name="pendidikanWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                                     <option value="">Pilih Pendidikan</option>
-                                    <option value="SD">SD/Sederajat</option>
-                                    <option value="SMP">SMP/Sederajat</option>
-                                    <option value="SMA">SMA/SMK/Sederajat</option>
-                                    <option value="D3">Diploma (D1/D2/D3)</option>
-                                    <option value="S1">Sarjana (S1/D4)</option>
-                                    <option value="S2">Magister (S2)</option>
-                                    <option value="S3">Doktor (S3)</option>
+                                    <option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option><option value="D3">D3</option><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option>
                                 </select>
                             </div>
                             <div>
@@ -291,7 +253,7 @@
                                 <input type="date" name="tanggalLahirWali" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
+                                <label class="block text-sm font-medium text-gray-700">Alamat</label>
                                 <textarea name="alamatWali" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
                             </div>
                             <div class="md:col-span-2">
@@ -300,18 +262,17 @@
                             </div>
                         </div>
 
+                        <h5 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4 mt-8">Wajib Diisi</h5>
                         <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 mb-6">
-                            <label class="block text-sm font-bold text-gray-800">Nomor WhatsApp Aktif *</label>
-                            <input type="tel" name="noWa" placeholder="0812xxxxxx" required class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 text-lg py-2">
-                            <p class="text-xs text-gray-600 mt-2">Pastikan nomor aktif. Informasi pendaftaran akan dikirim ke nomor ini.</p>
+                            <label class="block text-sm font-bold text-gray-800">Nomor WhatsApp *</label>
+                            <input type="tel" name="noWa" placeholder="08xxxxx" required class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 text-lg py-2">
                         </div>
 
                         <div class="mt-8 flex justify-between items-center">
                             <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors">&laquo; Kembali</button>
-                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">SUBMIT PENDAFTARAN</button>
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">SUBMIT</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -365,7 +326,8 @@
         </div>
 
         <div class="bg-white text-secondary rounded-full py-3 px-6 inline-block font-bold text-sm shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
-            Hubungi Customer Service Kami: <a href="https://wa.me/6281234567890" class="underline">+62 812-3456-7890</a>
+            Hubungi Customer Service Kami: <a href="https://wa.me/6281548408968" class="underline">0815 4840 8968 (Ust Winarti)
+</a>
         </div>
     </section>
 
@@ -373,8 +335,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="assets/logo.png" alt="Logo SMPIT Al Firdaus" class="h-10 w-auto object-contain">
-                    <h5 class="font-bold text-white">PPS SMPIT Al Firdaus</h5>
+                    <img src="assets/logo.png" alt="Logo KBIT Al Firdaus" class="h-10 w-auto object-contain">
+                    <h5 class="font-bold text-white">PPS KBIT Al Firdaus</h5>
                 </div>
                 <p class="opacity-75">Sistem Penjaminan Mutu internal untuk meningkatkan kualitas pendidikan di LPI Al Firdaus secara berkelanjutan.</p>
             </div>
@@ -403,7 +365,7 @@
                         <span>📍</span> Jl. Taman Makam Pahlawan No. 10, Purwodadi, Jawa Tengah
                     </li>
                     <li class="flex items-center gap-2">
-                        <span>✉️</span> smpit.alfirdaus@gmail.com
+                        <span>✉️</span> KBIT.alfirdaus@gmail.com
                     </li>
                 </ul>
             </div>
@@ -419,9 +381,9 @@
             <img src="assets/logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
             <div style="flex-grow: 1; text-align: center;">
                 <h3 style="margin: 0; font-size: 16px; font-weight: bold; text-transform: uppercase;">Panitia Pendataan Peminat Sekolah (PPS)</h3>
-                <h2 style="margin: 5px 0; font-size: 24px; font-weight: 900; text-transform: uppercase; color: #1d4ed8;">SMPIT Al Firdaus Purwodadi</h2>
+                <h2 style="margin: 5px 0; font-size: 24px; font-weight: 900; text-transform: uppercase; color: #1d4ed8;">KBIT Al Firdaus Purwodadi</h2>
                 <p style="margin: 0; font-size: 12px;">Jl. Taman Makam Pahlawan No. 10, Purwodadi, Grobogan, Jawa Tengah</p>
-                <p style="margin: 0; font-size: 12px;">Email: smpit.alfirdaus@gmail.com | Telp/WA: +62 812-3456-7890</p>
+                <p style="margin: 0; font-size: 12px;">Email: KBIT.alfirdaus@gmail.com | Telp/WA: +62 812-3456-7890</p>
             </div>
         </div>
 
