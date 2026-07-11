@@ -1,0 +1,24 @@
+/* Pengaturan dasar untuk kelancaran scrolling SPA */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Modifikasi tampilan Scrollbar agar cocok dengan tema LPIT */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f3f4f6; 
+}
+::-webkit-scrollbar-thumb {
+    background: #c4b5fd; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8b5cf6; 
+}
+
+/* Memastikan body tidak menutupi navbar sticky */
+body {
+    scroll-padding-top: 80px; 
+}

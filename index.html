@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Utama PPS LPIT Al Firdaus</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lpitpurple: '#8b5cf6', // Ungu utama LPIT
+                        lpitdark: '#2e1065',   // Ungu sangat gelap untuk footer
+                        lpitgreen: '#22c55e',  // Hijau untuk tombol CTA
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Menggunakan FontAwesome untuk Icon Centang/Medsos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="assets/logo.png" alt="Logo LPIT" class="h-10 w-auto object-contain">
+                    <h1 class="font-bold text-lg md:text-xl text-gray-900 tracking-tight">PPS LPIT Al Firdaus</h1>
+                </div>
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex gap-8 font-medium text-sm text-gray-600">
+                    <a href="#sekolah" class="hover:text-lpitpurple transition-colors">Daftar</a>
+                    <a href="#syarat" class="hover:text-lpitpurple transition-colors">Syarat</a>
+                    <a href="#waktu" class="hover:text-lpitpurple transition-colors">Waktu</a>
+                    <a href="#brosur" class="hover:text-lpitpurple transition-colors">Brosur</a>
+                    <a href="#kontak" class="hover:text-lpitpurple transition-colors">Contact</a>
+                </nav>
+                <!-- Menu Mobile Toggle (Opsional jika ingin dikembangkan) -->
+                <div class="md:hidden text-gray-600 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative w-full h-[600px] mt-16 flex items-center justify-center overflow-hidden">
+        <!-- Background Image (Ganti dengan foto murid Bapak di folder assets) -->
+        <img src="assets/bg-hero-utama.jpg" alt="Background Siswa" class="absolute inset-0 w-full h-full object-cover object-top opacity-90 z-0">
+        
+        <!-- Tulisan Watermark Besar di Belakang -->
+        <div class="absolute top-10 w-full text-center z-10 pointer-events-none opacity-20">
+            <h2 class="text-[6rem] md:text-[10rem] font-black text-white leading-none whitespace-nowrap overflow-hidden">PENDATAAN PEMINAT SEKOLAH</h2>
+        </div>
+
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-10">
+            <h2 class="text-4xl md:text-6xl font-black text-lpitdark leading-tight drop-shadow-md mb-2">
+                PENDATAAN PEMINAT SEKOLAH
+            </h2>
+            <h2 class="text-4xl md:text-6xl font-black text-lpitpurple leading-tight drop-shadow-md mb-8">
+                LPIT AL FIRDAUS <br> PURWODADI
+            </h2>
+            <a href="#sekolah" class="bg-lpitgreen hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 inline-block text-lg">
+                DAFTAR SEKARANG
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= KARTU SEKOLAH KAMI ================= -->
+    <section id="sekolah" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-2">SEKOLAH KAMI</h3>
+            <p class="text-gray-500">Silakan klik salah satu logo untuk melanjutkan pendaftaran</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Card SMPIT -->
+            <a href="../pps_smpit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
+                <div class="h-40 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                    <img src="assets/logo-smpit.png" alt="SMPIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
+                </div>
+                <div class="p-6 text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-2">SMPIT Al Firdaus<br>Purwodadi</h4>
+                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+                </div>
+            </a>
+
+            <!-- Card SDIT -->
+            <a href="../pps_sdit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
+                <div class="h-40 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+                    <img src="assets/logo-sdit.png" alt="SDIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
+                </div>
+                <div class="p-6 text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-2">SDIT Al Firdaus<br>Purwodadi</h4>
+                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+                </div>
+            </a>
+
+            <!-- Card RAIT -->
+            <a href="../pps_rait/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
+                <div class="h-40 bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center">
+                    <img src="assets/logo-rait.png" alt="RAIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
+                </div>
+                <div class="p-6 text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-2">RAIT Al Firdaus<br>Purwodadi</h4>
+                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+                </div>
+            </a>
+
+            <!-- Card KBIT -->
+            <a href="../pps_kbit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
+                <div class="h-40 bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center">
+                    <img src="assets/logo-kbit.png" alt="KBIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
+                </div>
+                <div class="p-6 text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-2">KBIT Al Firdaus<br>Purwodadi</h4>
+                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= SYARAT PENDAFTARAN ================= -->
+    <section id="syarat" class="relative py-20 overflow-hidden">
+        <!-- Tulisan Watermark -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <h2 class="text-[5rem] md:text-[8rem] font-black text-gray-200 leading-none opacity-50 whitespace-nowrap text-center">PENDATAAN PEMINAT SEKOLAH</h2>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">Syarat Pendaftaran</h3>
+                <h4 class="text-xl md:text-2xl font-bold text-lpitpurple">Pendataan Peminat Sekolah<br>LPIT Al Firdaus Purwodadi</h4>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 border border-gray-100">
+                <!-- List Syarat -->
+                <div class="flex-1 w-full">
+                    <h5 class="text-xl font-bold mb-6">Syarat Pendaftaran</h5>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-gray-400 mt-1"></i>
+                            <div>
+                                <span class="text-gray-700">Biaya Pendaftaran sebesar :</span>
+                                <ul class="list-disc ml-5 text-gray-600 mt-2 space-y-1 text-sm">
+                                    <li>SMPIT Al Firdaus: Rp. 150.000,-</li>
+                                    <li>SDIT Al Firdaus: Rp. 150.000,-</li>
+                                    <li>RAIT Al Firdaus: Rp. 125.000,-</li>
+                                    <li>KBIT Al Firdaus: Rp. 125.000,-</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Mengisi pendaftaran online</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Akta Kelahiran (1 Lembar)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Kartu Keluarga (1 Lembar)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Ijazah (1 Lembar)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Pas Foto berwarna (2 Lembar) untuk SMP</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Gambar Samping -->
+                <div class="flex-1 w-full relative">
+                    <!-- Placeholder untuk gambar siswa bawa piala seperti di desain -->
+                    <img src="assets/syarat-image.png" alt="Siswa Berprestasi" class="w-full h-auto object-contain drop-shadow-xl z-10 relative rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= WAKTU & GELOMBANG ================= -->
+    <section id="waktu" class="py-16 px-4 max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1">Informasi Gelombang Pendaftaran</h3>
+        <h4 class="text-xl md:text-2xl font-bold text-lpitpurple mb-10">PPS Al Firdaus Purwodadi</h4>
+
+        <div class="bg-blue-50/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-left shadow-sm border border-blue-100 flex flex-col gap-8 relative overflow-hidden">
+            <!-- Garis Vertikal Timeline -->
+            <div class="absolute left-[3.25rem] top-12 bottom-12 w-0.5 bg-gray-200 hidden md:block"></div>
+
+            <div class="flex gap-6 items-start relative z-10">
+                <div class="w-12 h-12 rounded-full bg-lpitpurple text-white flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-md">1</div>
+                <div>
+                    <h5 class="text-xl font-bold text-gray-900">Gelombang Inden</h5>
+                    <p class="text-gray-500 text-sm mt-1">Agustus - 30 September 2025</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-6 items-start relative z-10">
+                <div class="w-12 h-12 rounded-full bg-lpitpurple text-white flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-md">2</div>
+                <div>
+                    <h5 class="text-xl font-bold text-gray-900">Gelombang 1 (Satu)</h5>
+                    <p class="text-gray-500 text-sm mt-1">1 Oktober - Kuota Terpenuhi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= BROSUR & KONTAK (GRADIENT BAWAH) ================= -->
+    <section id="brosur" class="bg-gradient-to-br from-indigo-500 via-lpitpurple to-lpitdark py-20 px-4 text-center mt-10">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-white mb-2">Masih ada pertanyaan?</h3>
+            <p class="text-white/80 mb-10">Kami siap membantu menjawab pertanyaan Anda</p>
+            
+            <!-- Box Brosur -->
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-12 border border-white/20 shadow-xl">
+                <h4 class="font-bold text-2xl text-white mb-2">Brosur Sekolah</h4>
+                <p class="text-white/80 mb-6">Brosur Pendaftaran Lembaga Pendidikan Islam Terpadu Al Firdaus Purwodadi</p>
+                <button class="bg-lpitgreen hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-lg">
+                    UNDUH BROSUR
+                </button>
+            </div>
+
+            <p class="text-white/90 text-sm mb-4">Pertanyaan lain yang perlu dijawab? Tim kami siap membantu Anda!</p>
+            
+            <!-- Pill Kontak Buttons -->
+            <div id="kontak" class="bg-white rounded-full py-4 px-4 md:px-8 inline-flex flex-col md:flex-row items-center gap-4 md:gap-6 shadow-2xl w-full md:w-auto">
+                <span class="font-bold text-lpitpurple text-sm md:text-base">Hubungi Customer Service:</span>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://wa.me/628111" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">SMPIT</a>
+                    <a href="https://wa.me/628222" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">SDIT</a>
+                    <a href="https://wa.me/628333" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">RAIT</a>
+                    <a href="https://wa.me/628444" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">KBIT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-lpitdark text-gray-300 py-12 text-sm border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="assets/logo.png" alt="Logo LPIT" class="h-10 w-auto object-contain brightness-0 invert">
+                    <h5 class="font-bold text-white text-lg">PPS LPIT Al Firdaus<br>Purwodadi</h5>
+                </div>
+                <p class="opacity-75 mb-6">Sistem Pendaftaran Siswa Baru terpadu untuk meningkatkan kualitas pendidikan di LPIT Al Firdaus secara berkelanjutan.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-twitter text-white"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-instagram text-white"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fas fa-link text-white"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-6 text-base">Link Cepat</h5>
+                <ul class="space-y-3 opacity-75">
+                    <li><a href="#sekolah" class="hover:text-white transition-colors">→ Daftar</a></li>
+                    <li><a href="#syarat" class="hover:text-white transition-colors">→ Syarat</a></li>
+                    <li><a href="#waktu" class="hover:text-white transition-colors">→ Waktu</a></li>
+                    <li><a href="#brosur" class="hover:text-white transition-colors">→ Brosur</a></li>
+                    <li><a href="#kontak" class="hover:text-white transition-colors">→ Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-6 text-base">Layanan Kami</h5>
+                <ul class="space-y-3 opacity-75">
+                    <li><a href="../pps_smpit/index.html" class="hover:text-white transition-colors">→ SMPIT Al Firdaus Purwodadi</a></li>
+                    <li><a href="../pps_sdit/index.html" class="hover:text-white transition-colors">→ SDIT Al Firdaus Purwodadi</a></li>
+                    <li><a href="../pps_rait/index.html" class="hover:text-white transition-colors">→ RAIT Al Firdaus Purwodadi</a></li>
+                    <li><a href="../pps_kbit/index.html" class="hover:text-white transition-colors">→ KBIT Al Firdaus Purwodadi</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-6 text-base">Hubungi Kami</h5>
+                <ul class="space-y-4 opacity-75">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt mt-1"></i>
+                        <span>Jl. Taman Makam Pahlawan No. 10, Purwodadi, Jawa Tengah 58111</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope"></i>
+                        <span>lpit.alfirdaus@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12 pt-8 border-t border-white/10 opacity-50 text-xs">
+            &copy; 2026 <strong>PPS LPIT Al Firdaus Purwodadi</strong>. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+    </footer>
+</body>
+</html>
