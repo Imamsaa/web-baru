@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Utama PPS LPIT Al Firdaus</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        lpitpurple: '#8b5cf6', // Ungu utama LPIT
-                        lpitdark: '#2e1065',   // Ungu sangat gelap untuk footer
-                        lpitgreen: '#22c55e',  // Hijau untuk tombol CTA
+                        lpitpurple: '#7c3aed', // Ungu lebih modern (Violet 600)
+                        lpitdark: '#1e1b4b',   // Indigo sangat gelap
+                        lpitgreen: '#10b981',  // Hijau Emerald modern
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
@@ -21,284 +22,802 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Menggunakan FontAwesome untuk Icon Centang/Medsos -->
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-[#f8fafc] text-gray-800 font-sans overflow-x-hidden">
 
-    <!-- ================= NAVBAR ================= -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 transition-all duration-300">
+    <!-- ================= DYNAMIC NAVBAR ================= -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent py-5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center bg-white/80 backdrop-blur-lg rounded-full px-6 py-3 shadow-sm ring-1 ring-gray-900/5">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <img src="assets/logo.png" alt="Logo LPIT" class="h-10 w-auto object-contain">
-                    <h1 class="font-bold text-lg md:text-xl text-gray-900 tracking-tight">PPS LPIT Al Firdaus</h1>
+                    <img src="assets/logo.png" alt="Logo LPIT" class="h-9 w-auto object-contain">
+                    <h1 class="font-extrabold text-lg text-gray-900 tracking-tight">PPS Al Firdaus</h1>
                 </div>
                 <!-- Menu Desktop -->
                 <nav class="hidden md:flex gap-8 font-medium text-sm text-gray-600">
-                    <a href="#sekolah" class="hover:text-lpitpurple transition-colors">Daftar</a>
-                    <a href="#syarat" class="hover:text-lpitpurple transition-colors">Syarat</a>
-                    <a href="#waktu" class="hover:text-lpitpurple transition-colors">Waktu</a>
-                    <a href="#brosur" class="hover:text-lpitpurple transition-colors">Brosur</a>
-                    <a href="#kontak" class="hover:text-lpitpurple transition-colors">Contact</a>
+                    <a href="#sekolah" class="hover:text-lpitpurple hover:-translate-y-0.5 transition-all">Daftar</a>
+                    <a href="#syarat" class="hover:text-lpitpurple hover:-translate-y-0.5 transition-all">Syarat</a>
+                    <a href="#waktu" class="hover:text-lpitpurple hover:-translate-y-0.5 transition-all">Waktu</a>
+                    <a href="#brosur" class="hover:text-lpitpurple hover:-translate-y-0.5 transition-all">Brosur</a>
                 </nav>
-                <!-- Menu Mobile Toggle (Opsional jika ingin dikembangkan) -->
-                <div class="md:hidden text-gray-600 text-2xl">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <a href="#kontak" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white transition-all bg-lpitdark rounded-full hover:bg-lpitpurple hover:shadow-lg hover:shadow-lpitpurple/30">
+                    Contact Us
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- ================= HERO SECTION ================= -->
-    <section class="relative w-full h-[600px] mt-16 flex items-center justify-center overflow-hidden">
-        <!-- Background Image (Ganti dengan foto murid Bapak di folder assets) -->
-        <img src="assets/bg-hero-utama.jpg" alt="Background Siswa" class="absolute inset-0 w-full h-full object-cover object-top opacity-90 z-0">
+    <!-- ================= HERO SECTION (PREMIUM) ================= -->
+    <section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <img src="assets/bg-hero-utama.jpg" alt="Background Siswa" class="absolute inset-0 w-full h-full object-cover object-center z-0 scale-105 animate-slow-zoom">
         
-        <!-- Tulisan Watermark Besar di Belakang -->
-        <div class="absolute top-10 w-full text-center z-10 pointer-events-none opacity-20">
-            <h2 class="text-[6rem] md:text-[10rem] font-black text-white leading-none whitespace-nowrap overflow-hidden">PENDATAAN PEMINAT SEKOLAH</h2>
-        </div>
-
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-10">
-            <h2 class="text-4xl md:text-6xl font-black text-lpitdark leading-tight drop-shadow-md mb-2">
-                PENDATAAN PEMINAT SEKOLAH
+        <!-- Gradient Overlay agar teks lebih terbaca -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-[#f8fafc] z-10"></div>
+        
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto mt-20">
+            <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lpitpurple/10 text-lpitpurple font-semibold text-sm mb-6 ring-1 ring-lpitpurple/20">
+                <span class="w-2 h-2 rounded-full bg-lpitpurple animate-pulse"></span>
+                Tahun Ajaran 2026/2027
+            </div>
+            
+            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="text-4xl md:text-[4rem] font-black text-gray-900 leading-[1.1] tracking-tight mb-4">
+                PENDATAAN PEMINAT <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lpitpurple to-pink-500">SEKOLAH TERPADU</span>
             </h2>
-            <h2 class="text-4xl md:text-6xl font-black text-lpitpurple leading-tight drop-shadow-md mb-8">
-                LPIT AL FIRDAUS <br> PURWODADI
-            </h2>
-            <a href="#sekolah" class="bg-lpitgreen hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 inline-block text-lg">
-                DAFTAR SEKARANG
-            </a>
+            
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto mb-10">
+                Gerbang utama menuju pendidikan berkualitas, berkarakter Islami, dan berprestasi di LPIT Al Firdaus Purwodadi.
+            </p>
+            
+            <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                <a href="#sekolah" class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-lpitgreen rounded-full shadow-2xl shadow-lpitgreen/40 hover:bg-emerald-600 hover:-translate-y-1 group">
+                    DAFTAR SEKARANG
+                    <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- ================= KARTU SEKOLAH KAMI ================= -->
-    <section id="sekolah" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-2">SEKOLAH KAMI</h3>
-            <p class="text-gray-500">Silakan klik salah satu logo untuk melanjutkan pendaftaran</p>
+    <!-- ================= KARTU SEKOLAH KAMI (HOVER EFFECT) ================= -->
+    <section id="sekolah" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h3 class="text-sm font-bold tracking-widest text-lpitpurple uppercase mb-2">Pilih Unit Pendidikan</h3>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900">SEKOLAH KAMI</h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Card SMPIT -->
-            <a href="../pps_smpit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
-                <div class="h-40 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
-                    <img src="assets/logo-smpit.png" alt="SMPIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
-                </div>
-                <div class="p-6 text-center">
-                    <h4 class="font-bold text-lg text-gray-900 mb-2">SMPIT Al Firdaus<br>Purwodadi</h4>
-                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+            <a href="../pps_smpit/index.html" data-aos="fade-up" data-aos-delay="100" class="group relative bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 ring-1 ring-gray-900/5">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white rounded-[22px] h-full overflow-hidden">
+                    <div class="h-40 bg-blue-50/50 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute w-32 h-32 bg-blue-400/20 rounded-full blur-2xl group-hover:bg-blue-400/40 transition-colors"></div>
+                        <img src="assets/logo-smpit.png" alt="SMPIT" class="h-24 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">SMPIT Al Firdaus</h4>
+                        <p class="text-xs text-gray-500">Formulir pendaftaran siswa baru</p>
+                    </div>
                 </div>
             </a>
 
             <!-- Card SDIT -->
-            <a href="../pps_sdit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
-                <div class="h-40 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
-                    <img src="assets/logo-sdit.png" alt="SDIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
-                </div>
-                <div class="p-6 text-center">
-                    <h4 class="font-bold text-lg text-gray-900 mb-2">SDIT Al Firdaus<br>Purwodadi</h4>
-                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+            <a href="../pps_sdit/index.html" data-aos="fade-up" data-aos-delay="200" class="group relative bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 hover:-translate-y-2 ring-1 ring-gray-900/5">
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white rounded-[22px] h-full overflow-hidden">
+                    <div class="h-40 bg-orange-50/50 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute w-32 h-32 bg-orange-400/20 rounded-full blur-2xl group-hover:bg-orange-400/40 transition-colors"></div>
+                        <img src="assets/logo-sdit.png" alt="SDIT" class="h-24 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-lg text-gray-900 mb-1 group-hover:text-orange-600 transition-colors">SDIT Al Firdaus</h4>
+                        <p class="text-xs text-gray-500">Formulir pendaftaran siswa baru</p>
+                    </div>
                 </div>
             </a>
 
             <!-- Card RAIT -->
-            <a href="../pps_rait/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
-                <div class="h-40 bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center">
-                    <img src="assets/logo-rait.png" alt="RAIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
-                </div>
-                <div class="p-6 text-center">
-                    <h4 class="font-bold text-lg text-gray-900 mb-2">RAIT Al Firdaus<br>Purwodadi</h4>
-                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+            <a href="../pps_rait/index.html" data-aos="fade-up" data-aos-delay="300" class="group relative bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-500 hover:-translate-y-2 ring-1 ring-gray-900/5">
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white rounded-[22px] h-full overflow-hidden">
+                    <div class="h-40 bg-emerald-50/50 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute w-32 h-32 bg-emerald-400/20 rounded-full blur-2xl group-hover:bg-emerald-400/40 transition-colors"></div>
+                        <img src="assets/logo-rait.png" alt="RAIT" class="h-24 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-lg text-gray-900 mb-1 group-hover:text-emerald-600 transition-colors">RAIT Al Firdaus</h4>
+                        <p class="text-xs text-gray-500">Formulir pendaftaran siswa baru</p>
+                    </div>
                 </div>
             </a>
 
             <!-- Card KBIT -->
-            <a href="../pps_kbit/index.html" class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group">
-                <div class="h-40 bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center">
-                    <img src="assets/logo-kbit.png" alt="KBIT" class="h-24 w-auto drop-shadow-lg group-hover:scale-110 transition-transform">
-                </div>
-                <div class="p-6 text-center">
-                    <h4 class="font-bold text-lg text-gray-900 mb-2">KBIT Al Firdaus<br>Purwodadi</h4>
-                    <p class="text-xs text-gray-500">Panduan lengkap untuk mendaftar akun baru</p>
+            <a href="../pps_kbit/index.html" data-aos="fade-up" data-aos-delay="400" class="group relative bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-500 hover:-translate-y-2 ring-1 ring-gray-900/5">
+                <div class="absolute inset-0 bg-gradient-to-br from-pink-400 to-rose-500 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white rounded-[22px] h-full overflow-hidden">
+                    <div class="h-40 bg-pink-50/50 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute w-32 h-32 bg-pink-400/20 rounded-full blur-2xl group-hover:bg-pink-400/40 transition-colors"></div>
+                        <img src="assets/logo-kbit.png" alt="KBIT" class="h-24 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-lg text-gray-900 mb-1 group-hover:text-pink-600 transition-colors">KBIT Al Firdaus</h4>
+                        <p class="text-xs text-gray-500">Formulir pendaftaran siswa baru</p>
+                    </div>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- ================= SYARAT PENDAFTARAN ================= -->
-    <section id="syarat" class="relative py-20 overflow-hidden">
-        <!-- Tulisan Watermark -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <h2 class="text-[5rem] md:text-[8rem] font-black text-gray-200 leading-none opacity-50 whitespace-nowrap text-center">PENDATAAN PEMINAT SEKOLAH</h2>
-        </div>
-
-        <div class="relative z-10 max-w-6xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">Syarat Pendaftaran</h3>
-                <h4 class="text-xl md:text-2xl font-bold text-lpitpurple">Pendataan Peminat Sekolah<br>LPIT Al Firdaus Purwodadi</h4>
+    <!-- ================= PROFIL SMPIT AL FIRDAUS ================= -->
+    <section id="profil-smpit" class="py-24 px-4 bg-gray-50 relative overflow-hidden">
+        <!-- Dekorasi Latar -->
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+        <div class="absolute right-0 top-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header Profil -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-4">
+                    <i class="fas fa-handshake"></i>
+                    Bermitra Dengan Yayasan Al Abidin
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">SMPIT Al Firdaus</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-medium">Menyelenggarakan Kelas Internasional dan mencetak generasi Qur'ani yang berwawasan global.</p>
             </div>
 
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 border border-gray-100">
-                <!-- List Syarat -->
-                <div class="flex-1 w-full">
-                    <h5 class="text-xl font-bold mb-6">Syarat Pendaftaran</h5>
-                    <ul class="space-y-4">
+            <!-- Visi & Misi Card -->
+            <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12 mb-16 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-[100%]"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-gray-100 pb-8 md:pb-0 md:pr-8">
+                        <h4 class="text-2xl font-black text-blue-600 mb-4 flex items-center gap-3"><i class="fas fa-eye text-3xl opacity-20"></i> VISI</h4>
+                        <p class="text-gray-700 leading-relaxed font-medium">Menjadi lembaga pendidikan islam yang unggul dan menghasilkan lulusan yang bertaqwa, berprestasi dan berwawasan global.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-black text-blue-600 mb-4 flex items-center gap-3"><i class="fas fa-bullseye text-3xl opacity-20"></i> MISI</h4>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-star text-blue-400 mt-1 text-sm"></i>
+                                <span>Membentuk satuan pendidikan yang berorientasi pada karakter dan nilai-nilai islam.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-star text-blue-400 mt-1 text-sm"></i>
+                                <span>Mengembangkan potensi siswa dengan metode pembelajaran yang kreatif, inovatif dan berwawasan global.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-star text-blue-400 mt-1 text-sm"></i>
+                                <span>Melaksanakan pembelajaran dan bimbingan secara efektif agar siswa memiliki pemahaman dan kompetensi yang seimbang terhadap aspek spiritual, intelektual, emosional, bahasa, seni, dan budaya untuk menghadapi tantangan global.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program Unggulan (3 Cards) -->
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h3 class="text-2xl font-black text-gray-900">Program Kelas Unggulan</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- ICP -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-globe-americas"></i></div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">International Class Program (ICP)</h4>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>International Curriculum & Cambridge Qualification</li>
+                        <li>Global Recognition & Focus on English Language Proficiency</li>
+                        <li>Encourage Critical Thinking & Continuous Assessment (IGCSE)</li>
+                    </ul>
+                </div>
+                
+                <!-- ICT -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-laptop-code"></i></div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Information & Communication Technology (ICT)</h4>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Learn Robotics using Arduino & Programming Languages</li>
+                        <li>Graphic Design using Canva, CorelDraw</li>
+                        <li>Create an Android Application using Appsheet & Create Games using Construct 3</li>
+                    </ul>
+                </div>
+
+                <!-- TCP -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-quran"></i></div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Tahfidz Class Program (TCP)</h4>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Target Hafalan 10 Juz & Sistem belajar kelompok kecil</li>
+                        <li>Ziyadah, Muroja'ah, Juziyyah rutin, Tasmi'</li>
+                        <li>Kegiatan Pendukung: Tahfidz Camp, Sertifikasi Al Qur'an</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Ekstrakurikuler & Prestasi -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Ekstrakurikuler -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100" data-aos="fade-right">
+                    <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-running text-blue-500"></i> Ekstrakurikuler Sekolah</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Pramuka</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Futsal</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">English Club</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Panahan</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Volly</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Tata Boga</span>
+                        <span class="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-200">Tari</span>
+                    </div>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="bg-blue-600 rounded-3xl p-8 shadow-lg text-white" data-aos="fade-left">
+                    <h4 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-trophy text-yellow-300"></i> Prestasi Gemilang</h4>
+                    <ul class="space-y-4 text-sm opacity-90">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-check text-gray-400 mt-1"></i>
-                            <div>
-                                <span class="text-gray-700">Biaya Pendaftaran sebesar :</span>
-                                <ul class="list-disc ml-5 text-gray-600 mt-2 space-y-1 text-sm">
-                                    <li>SMPIT Al Firdaus: Rp. 150.000,-</li>
-                                    <li>SDIT Al Firdaus: Rp. 150.000,-</li>
-                                    <li>RAIT Al Firdaus: Rp. 125.000,-</li>
-                                    <li>KBIT Al Firdaus: Rp. 125.000,-</li>
-                                </ul>
-                            </div>
+                            <i class="fas fa-medal mt-1 text-yellow-300"></i>
+                            <span>Juara 1 International Karate Championship IV Kategori Perorangan Putri Tahun 2024</span>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Mengisi pendaftaran online</span>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-gray-300"></i>
+                            <span>Juara 2 FLS2N Cabang Ilustrasi Tingkat Kabupaten Grobogan Tahun 2024</span>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Akta Kelahiran (1 Lembar)</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Kartu Keluarga (1 Lembar)</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Fotocopy Ijazah (1 Lembar)</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-gray-400"></i> <span class="text-gray-700">Pas Foto berwarna (2 Lembar) untuk SMP</span>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-yellow-400"></i>
+                            <span>Mendali Emas Kompas (Kompetisi Sains Nasional) Tahun 2024</span>
                         </li>
                     </ul>
                 </div>
-                <!-- Gambar Samping -->
-                <div class="flex-1 w-full relative">
-                    <!-- Placeholder untuk gambar siswa bawa piala seperti di desain -->
-                    <img src="assets/syarat-image.png" alt="Siswa Berprestasi" class="w-full h-auto object-contain drop-shadow-xl z-10 relative rounded-xl">
-                </div>
             </div>
+            
         </div>
     </section>
 
-    <!-- ================= WAKTU & GELOMBANG ================= -->
-    <section id="waktu" class="py-16 px-4 max-w-4xl mx-auto text-center">
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1">Informasi Gelombang Pendaftaran</h3>
-        <h4 class="text-xl md:text-2xl font-bold text-lpitpurple mb-10">PPS Al Firdaus Purwodadi</h4>
-
-        <div class="bg-blue-50/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-left shadow-sm border border-blue-100 flex flex-col gap-8 relative overflow-hidden">
-            <!-- Garis Vertikal Timeline -->
-            <div class="absolute left-[3.25rem] top-12 bottom-12 w-0.5 bg-gray-200 hidden md:block"></div>
-
-            <div class="flex gap-6 items-start relative z-10">
-                <div class="w-12 h-12 rounded-full bg-lpitpurple text-white flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-md">1</div>
-                <div>
-                    <h5 class="text-xl font-bold text-gray-900">Gelombang Inden</h5>
-                    <p class="text-gray-500 text-sm mt-1">Agustus - 30 September 2025</p>
-                </div>
-            </div>
-            
-            <div class="flex gap-6 items-start relative z-10">
-                <div class="w-12 h-12 rounded-full bg-lpitpurple text-white flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-md">2</div>
-                <div>
-                    <h5 class="text-xl font-bold text-gray-900">Gelombang 1 (Satu)</h5>
-                    <p class="text-gray-500 text-sm mt-1">1 Oktober - Kuota Terpenuhi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= BROSUR & KONTAK (GRADIENT BAWAH) ================= -->
-    <section id="brosur" class="bg-gradient-to-br from-indigo-500 via-lpitpurple to-lpitdark py-20 px-4 text-center mt-10">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-3xl font-bold text-white mb-2">Masih ada pertanyaan?</h3>
-            <p class="text-white/80 mb-10">Kami siap membantu menjawab pertanyaan Anda</p>
-            
-            <!-- Box Brosur -->
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-12 border border-white/20 shadow-xl">
-                <h4 class="font-bold text-2xl text-white mb-2">Brosur Sekolah</h4>
-                <p class="text-white/80 mb-6">Brosur Pendaftaran Lembaga Pendidikan Islam Terpadu Al Firdaus Purwodadi</p>
-                <button class="bg-lpitgreen hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-lg">
-                    UNDUH BROSUR
-                </button>
-            </div>
-
-            <p class="text-white/90 text-sm mb-4">Pertanyaan lain yang perlu dijawab? Tim kami siap membantu Anda!</p>
-            
-            <!-- Pill Kontak Buttons -->
-            <div id="kontak" class="bg-white rounded-full py-4 px-4 md:px-8 inline-flex flex-col md:flex-row items-center gap-4 md:gap-6 shadow-2xl w-full md:w-auto">
-                <span class="font-bold text-lpitpurple text-sm md:text-base">Hubungi Customer Service:</span>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <a href="https://wa.me/628111" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">SMPIT</a>
-                    <a href="https://wa.me/628222" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">SDIT</a>
-                    <a href="https://wa.me/628333" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">RAIT</a>
-                    <a href="https://wa.me/628444" class="bg-lpitgreen hover:bg-green-600 text-white font-bold text-xs py-2 px-6 rounded-full transition-colors">KBIT</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-lpitdark text-gray-300 py-12 text-sm border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
-            
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <img src="assets/logo.png" alt="Logo LPIT" class="h-10 w-auto object-contain brightness-0 invert">
-                    <h5 class="font-bold text-white text-lg">PPS LPIT Al Firdaus<br>Purwodadi</h5>
-                </div>
-                <p class="opacity-75 mb-6">Sistem Pendaftaran Siswa Baru terpadu untuk meningkatkan kualitas pendidikan di LPIT Al Firdaus secara berkelanjutan.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-facebook-f text-white"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-twitter text-white"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fab fa-instagram text-white"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-lpitpurple transition-colors"><i class="fas fa-link text-white"></i></a>
-                </div>
-            </div>
-
-            <div>
-                <h5 class="font-bold text-white mb-6 text-base">Link Cepat</h5>
-                <ul class="space-y-3 opacity-75">
-                    <li><a href="#sekolah" class="hover:text-white transition-colors">→ Daftar</a></li>
-                    <li><a href="#syarat" class="hover:text-white transition-colors">→ Syarat</a></li>
-                    <li><a href="#waktu" class="hover:text-white transition-colors">→ Waktu</a></li>
-                    <li><a href="#brosur" class="hover:text-white transition-colors">→ Brosur</a></li>
-                    <li><a href="#kontak" class="hover:text-white transition-colors">→ Contact</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h5 class="font-bold text-white mb-6 text-base">Layanan Kami</h5>
-                <ul class="space-y-3 opacity-75">
-                    <li><a href="../pps_smpit/index.html" class="hover:text-white transition-colors">→ SMPIT Al Firdaus Purwodadi</a></li>
-                    <li><a href="../pps_sdit/index.html" class="hover:text-white transition-colors">→ SDIT Al Firdaus Purwodadi</a></li>
-                    <li><a href="../pps_rait/index.html" class="hover:text-white transition-colors">→ RAIT Al Firdaus Purwodadi</a></li>
-                    <li><a href="../pps_kbit/index.html" class="hover:text-white transition-colors">→ KBIT Al Firdaus Purwodadi</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h5 class="font-bold text-white mb-6 text-base">Hubungi Kami</h5>
-                <ul class="space-y-4 opacity-75">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-map-marker-alt mt-1"></i>
-                        <span>Jl. Taman Makam Pahlawan No. 10, Purwodadi, Jawa Tengah 58111</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-envelope"></i>
-                        <span>lpit.alfirdaus@gmail.com</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- ================= PROFIL SDIT AL FIRDAUS ================= -->
+    <section id="profil-sdit" class="py-24 px-4 bg-white relative overflow-hidden">
+        <!-- Dekorasi Latar Oranye -->
+        <div class="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-transparent via-orange-500/20 to-transparent"></div>
+        <div class="absolute left-0 top-1/3 w-72 h-72 bg-orange-400/10 rounded-full blur-3xl -z-10"></div>
         
-        <div class="text-center mt-12 pt-8 border-t border-white/10 opacity-50 text-xs">
-            &copy; 2026 <strong>PPS LPIT Al Firdaus Purwodadi</strong>. Hak Cipta Dilindungi Undang-Undang.
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header Profil SDIT -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 font-bold text-xs mb-4">
+                    <i class="fas fa-handshake"></i>
+                    Bermitra Dengan Yayasan Al Abidin
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">SDIT Al Firdaus</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-medium">Menyelenggarakan Kelas Internasional dengan fondasi akhlak mulia dan literasi teknologi global.</p>
+            </div>
+
+            <!-- Visi & Misi Card -->
+            <div class="bg-gray-50 rounded-[2rem] shadow-lg border border-gray-100 p-8 md:p-12 mb-16 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-200/50 to-transparent rounded-bl-[100%]"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-gray-200 pb-8 md:pb-0 md:pr-8">
+                        <h4 class="text-2xl font-black text-orange-600 mb-4 flex items-center gap-3"><i class="fas fa-eye text-3xl opacity-20"></i> VISI</h4>
+                        <p class="text-gray-700 leading-relaxed font-medium">Terwujudnya lulusan yang Qur'ani, berakhlak mulia dan Berwawasan Global.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-black text-orange-600 mb-4 flex items-center gap-3"><i class="fas fa-bullseye text-3xl opacity-20"></i> MISI</h4>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-play text-orange-500 mt-1 text-xs"></i>
+                                <span>Menanamkan kecintaan terhadap Al Qur'an melalui pembelajaran yang menyenangkan dan efektif, agar murid mampu membaca dan senang menghafal Al Qur'an.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-play text-orange-500 mt-1 text-xs"></i>
+                                <span>Membangun karakter Islami dan akhlak mulia melalui pembiasaan adab harian, role model guru, dan kegiatan keislaman yang kontekstual dan menyenangkan.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-play text-orange-500 mt-1 text-xs"></i>
+                                <span>Mempersiapkan murid menghadapi dunia global melalui literasi teknologi, pengenalan bahasa asing, dan penanaman nilai-nilai toleransi dalam bingkai Islam.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program Unggulan (4 Cards) -->
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h3 class="text-2xl font-black text-gray-900">Program Kelas Unggulan</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- ICP -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform"><i class="fas fa-globe-americas"></i></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">International Class Program (ICP)</h4>
+                    <p class="text-sm text-gray-500">Pendidikan berstandar internasional.</p>
+                </div>
+                
+                <!-- ICT -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform"><i class="fas fa-laptop-code"></i></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Information and Communication Technology (ICT)</h4>
+                    <p class="text-sm text-gray-500">Fokus pada literasi dan keterampilan digital.</p>
+                </div>
+
+                <!-- TCP -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform"><i class="fas fa-quran"></i></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Tahfidz Class Program (TCP)</h4>
+                    <p class="text-sm text-gray-500">Program intensif hafalan Al-Qur'an.</p>
+                </div>
+
+                <!-- RCP -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform"><i class="fas fa-graduation-cap"></i></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Reguler Class Program (RCP)</h4>
+                    <p class="text-sm text-gray-500">Program kelas reguler berstandar mutu tinggi.</p>
+                </div>
+            </div>
+
+            <!-- Ekstrakurikuler & Prestasi -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Ekstrakurikuler -->
+                <div class="bg-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100" data-aos="fade-right">
+                    <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-running text-orange-500"></i> Ekstrakurikuler Sekolah</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Pramuka</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Renang</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Taekwondo</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Badminton</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">ICT</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Karate</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">English Club</span>
+                        <span class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">Tari Kreasi</span>
+                    </div>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-8 shadow-lg text-white" data-aos="fade-left">
+                    <h4 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-trophy text-yellow-200"></i> Prestasi Gemilang</h4>
+                    <ul class="space-y-4 text-sm opacity-95">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-yellow-300"></i>
+                            <span>Gold Medals Girls Individual Kumite 8-9 years old + 25 kg at 24th Milo International Open Karate Championship Stadium Titiwangsa Kuala Lumpur Malaysia 2025.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-gray-200"></i>
+                            <span>Silver Medals Girls Individual KATA 8-9 years old at 24th Milo International Open Karate Championship Stadium Titiwangsa Kuala Lumpur Malaysia 2025.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-yellow-300"></i>
+                            <span>Meraih Medali Emas di Olimpiade Matematika Level 3 Obor Langit Tingkat Nasional 2025.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-gray-200"></i>
+                            <span>Meraih Medali Perak Bidang IPAS Festival Olimpiade Sains Tingkat Nasional (FORNAS) Indonesia Youth Science Competition 2025.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-gray-200"></i>
+                            <span>Meraih Medali Perak Matematika Level 2 JSO (Jenius Science Olimpiade) Jawa Tengah Tahun 2025.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
-    </footer>
+    </section>
+
+    <!-- ================= PROFIL RAIT AL FIRDAUS ================= -->
+    <section id="profil-rait" class="py-24 px-4 bg-gray-50 relative overflow-hidden">
+        <!-- Dekorasi Latar Hijau -->
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"></div>
+        <div class="absolute right-0 top-1/4 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl -z-10"></div>
+        <!-- Ornamen tambahan khas TK (Opsional) -->
+        <div class="absolute left-10 top-20 text-emerald-200/50 text-6xl -z-10 transform -rotate-12"><i class="fas fa-leaf"></i></div>
+        <div class="absolute right-10 bottom-20 text-emerald-200/50 text-6xl -z-10 transform rotate-12"><i class="fas fa-star"></i></div>
+        
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header Profil RAIT -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs mb-4 shadow-sm border border-emerald-200">
+                    <i class="fas fa-award text-yellow-500"></i>
+                    Terakreditasi A oleh BAN PAUD dan PNF
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">RA IT Al-Firdaus</h2>
+                <p class="text-emerald-600 max-w-2xl mx-auto font-bold text-lg tracking-widest uppercase">Cinta Qur'an, Cerdas, Ceria</p>
+            </div>
+
+            <!-- Visi & Misi Card -->
+            <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12 mb-16 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-100 to-transparent rounded-bl-[100%]"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-gray-100 pb-8 md:pb-0 md:pr-8">
+                        <h4 class="text-2xl font-black text-emerald-600 mb-4 flex items-center gap-3"><i class="fas fa-eye text-3xl opacity-20"></i> VISI</h4>
+                        <p class="text-gray-700 leading-relaxed font-bold italic">"Membentuk Generasi Qur'ani, Berkarakter, dan Berprestasi"</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-black text-emerald-600 mb-4 flex items-center gap-3"><i class="fas fa-bullseye text-3xl opacity-20"></i> MISI</h4>
+                        <ul class="space-y-4 text-gray-700 font-medium">
+                            <li class="flex items-start gap-3 bg-emerald-50/50 p-3 rounded-xl border border-emerald-50">
+                                <i class="fas fa-heart text-pink-400 mt-1"></i>
+                                <span>Mendidik anak untuk cinta Al Qur'an.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-emerald-50/50 p-3 rounded-xl border border-emerald-50">
+                                <i class="fas fa-seedling text-emerald-500 mt-1"></i>
+                                <span>Mendidik anak berakhlak islami.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-emerald-50/50 p-3 rounded-xl border border-emerald-50">
+                                <i class="fas fa-star text-yellow-400 mt-1"></i>
+                                <span>Membentuk generasi unggul dalam ilmu umum maupun ilmu agama.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Program & Kurikulum Khas -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+                
+                <!-- Program Unggulan (Kiri - Lebar 5 kolom) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="text-left mb-6" data-aos="fade-right">
+                        <h3 class="text-2xl font-black text-gray-900">Program Unggulan</h3>
+                    </div>
+                    
+                    <!-- Kelas Tahfidz -->
+                    <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 shadow-lg text-white relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-quran absolute right-[-20px] bottom-[-20px] text-8xl opacity-10 transform group-hover:scale-110 transition-transform"></i>
+                        <h4 class="text-2xl font-bold mb-2">Kelas Tahfidz</h4>
+                        <p class="text-emerald-100 mb-4 text-sm">Target lulus hafal juz 30</p>
+                        <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-bold border border-white/30">
+                            Kuota 30 Anak
+                        </div>
+                    </div>
+
+                    <!-- Kelas Reguler -->
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-shapes absolute right-[-10px] bottom-[-10px] text-7xl text-gray-100 transform group-hover:rotate-12 transition-transform"></i>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-2">Kelas Reguler</h4>
+                        <p class="text-gray-500 mb-4 text-sm">Target lulus hafal 1/2 juz 30</p>
+                        <div class="inline-block bg-emerald-50 text-emerald-700 px-4 py-1 rounded-full text-sm font-bold border border-emerald-200">
+                            Kuota 60 Anak
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kurikulum Khas & Kegiatan (Kanan - Lebar 7 kolom) -->
+                <div class="lg:col-span-7">
+                    <div class="text-left mb-6" data-aos="fade-left">
+                        <h3 class="text-2xl font-black text-gray-900">Kurikulum & Kegiatan</h3>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-gray-100 h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                        <!-- Kurikulum Khas -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-bold text-emerald-600 mb-4 border-b border-gray-100 pb-2"><i class="fas fa-book-open mr-2"></i> Kurikulum Khas</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-600">
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Menulis khot</span></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Baca Al Qur'an (metode Qiroati)</span></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Praktek ibadah (wudhu, shalat)</span></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Sirah rasul (audio visual)</span></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Tahfidz doa & asmaul husna</span></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-400 mt-1"></i><span>Pengenalan bahasa arab & inggris</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Kegiatan Penunjang -->
+                        <div>
+                            <h4 class="text-lg font-bold text-orange-500 mb-4 border-b border-gray-100 pb-2"><i class="fas fa-shapes mr-2"></i> Kegiatan Penunjang</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Kunjungan</span>
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Outbound</span>
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Renang</span>
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Manasik Haji</span>
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Syiar Islam</span>
+                                <span class="px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-gray-700 border border-gray-200">Peringatan Hari Besar Islam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Prestasi Sekolah, Guru & Anak -->
+            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-8 border border-emerald-100 shadow-sm" data-aos="zoom-in">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 flex items-center gap-2"><i class="fas fa-trophy text-yellow-500"></i> Prestasi Gemilang RAIT</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Terakreditasi oleh BAN PAUD dan PNF dengan nilai A. Guru-guru kami berprestasi hingga tingkat Nasional. Anak didik kami rutin menjuarai berbagai lomba tingkat Kabupaten Grobogan antara lain: <strong>Mewarnai, Peragaan Busana Muslim, Pildacil, Tahfidz, dan Menyanyi</strong>.
+                        </p>
+                    </div>
+                    <!-- Ilustrasi atau Badge Sederhana -->
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md flex-shrink-0 text-emerald-500 text-4xl">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ================= PROFIL KBIT AL FIRDAUS ================= -->
+    <section id="profil-kbit" class="py-24 px-4 bg-white relative overflow-hidden">
+        <!-- Dekorasi Latar Pink -->
+        <div class="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-transparent via-pink-500/20 to-transparent"></div>
+        <div class="absolute left-0 top-1/4 w-72 h-72 bg-pink-400/10 rounded-full blur-3xl -z-10"></div>
+        <!-- Ornamen anak-anak -->
+        <div class="absolute right-10 top-20 text-pink-200/50 text-6xl -z-10 transform rotate-12"><i class="fas fa-shapes"></i></div>
+
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Profil -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-pink-100 text-pink-700 font-bold text-xs mb-4 shadow-sm border border-pink-200">
+                    <i class="fas fa-smile-beam text-pink-500"></i>
+                    Smart Berkarakter
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">KBIT Al Firdaus</h2>
+                <p class="text-pink-600 max-w-2xl mx-auto font-bold text-lg tracking-widest uppercase">Kelompok Bermain Islam Terpadu</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+                <!-- Program Unggulan (Kiri - 7 Kolom) -->
+                <div class="lg:col-span-7">
+                    <div class="text-left mb-8" data-aos="fade-right">
+                        <h3 class="text-2xl font-black text-gray-900 flex items-center gap-3"><i class="fas fa-star text-pink-400"></i> Program Unggulan</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Item 1 -->
+                        <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all group" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-praying-hands"></i></div>
+                            <h4 class="font-bold text-gray-900 leading-snug">Pembiasaan nilai-nilai islami sejak dini</h4>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all group" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-book-open"></i></div>
+                            <h4 class="font-bold text-gray-900 leading-snug">Hafalan surat pendek, hadits & doa</h4>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all group" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-heart"></i></div>
+                            <h4 class="font-bold text-gray-900 leading-snug">Menumbuhkan kepedulian sosial sejak dini</h4>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all group" data-aos="fade-up" data-aos-delay="400">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-language"></i></div>
+                            <h4 class="font-bold text-gray-900 leading-snug">Pengenalan huruf hijaiyah metode Qiroaty</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fasilitas (Kanan - 5 Kolom) -->
+                <div class="lg:col-span-5">
+                    <div class="text-left mb-8" data-aos="fade-left">
+                        <h3 class="text-2xl font-black text-gray-900 flex items-center gap-3"><i class="fas fa-building text-pink-400"></i> Fasilitas Sekolah</h3>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-500 rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden" data-aos="zoom-in">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                        <ul class="space-y-5 relative z-10 font-medium">
+                            <li class="flex items-center gap-4 bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                                <i class="fas fa-mosque text-xl text-pink-200 w-6 text-center"></i>
+                                <span>Mushola</span>
+                            </li>
+                            <li class="flex items-center gap-4 bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                                <i class="fas fa-tv text-xl text-pink-200 w-6 text-center"></i>
+                                <span>Smart TV</span>
+                            </li>
+                            <li class="flex items-center gap-4 bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                                <i class="fas fa-tree text-xl text-pink-200 w-6 text-center"></i>
+                                <span>Halaman Sekolah</span>
+                            </li>
+                            <li class="flex items-center gap-4 bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                                <i class="fas fa-puzzle-piece text-xl text-pink-200 w-6 text-center"></i>
+                                <span>Tempat bermain LUAS</span>
+                            </li>
+                            <li class="flex items-center gap-4 bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                                <i class="fas fa-snowflake text-xl text-pink-200 w-6 text-center"></i>
+                                <span>Ruang Kelas Luas dan ber-AC</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="syarat" class="relative py-24 overflow-hidden bg-white">
+        <!-- Dekorasi Background -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-lpitpurple/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-lpitgreen/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Teks Syarat -->
+                <div class="flex-1 w-full" data-aos="fade-right">
+                    <h3 class="text-sm font-bold tracking-widest text-lpitpurple uppercase mb-2">Persiapan</h3>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8">Syarat Pendaftaran <br> <span class="font-light text-gray-500">Dokumen & Ketentuan</span></h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Item 1 -->
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-lpitpurple">
+                                <i class="fas fa-wallet text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Biaya Pendaftaran</h5>
+                                <p class="text-sm text-gray-500 mt-1">SMPIT & SDIT: Rp 150.000,- <br> RAIT & KBIT: Rp 125.000,-</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-lpitpurple">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Dokumen Utama</h5>
+                                <ul class="text-sm text-gray-500 mt-1 list-disc ml-4">
+                                    <li>Fotocopy Akta Kelahiran (1 Lembar)</li>
+                                    <li>Fotocopy Kartu Keluarga (1 Lembar)</li>
+                                    <li>Fotocopy Ijazah (1 Lembar)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-lpitpurple">
+                                <i class="fas fa-camera text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Pas Foto</h5>
+                                <p class="text-sm text-gray-500 mt-1">Pas foto berwarna ukuran 3x4 (2 Lembar) *Khusus pendaftar SMPIT.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gambar Samping -->
+                <div class="flex-1 w-full" data-aos="fade-left">
+                    <div class="relative rounded-[2.5rem] bg-gradient-to-tr from-lpitpurple/20 to-pink-500/20 p-2">
+                        <img src="assets/syarat-image.png" alt="Siswa Berprestasi" class="w-full h-auto object-cover rounded-[2rem] shadow-2xl animate-float">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TIMELINE WAKTU ================= -->
+    <section id="waktu" class="py-24 px-4 max-w-4xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h3 class="text-sm font-bold tracking-widest text-lpitpurple uppercase mb-2">Jadwal PPDB</h3>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900">Gelombang Pendaftaran</h2>
+        </div>
+
+        <div class="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:to-transparent">
+            
+            <!-- Gelombang Inden -->
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active mb-12" data-aos="fade-up">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-lpitpurple text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-xl group-hover:border-lpitpurple/30 transition-all">
+                    <div class="flex flex-col">
+                        <h4 class="font-bold text-xl text-gray-900">Gelombang Inden</h4>
+                        <time class="text-sm font-medium text-lpitpurple mb-3">Agustus - 30 September 2025</time>
+                        <p class="text-gray-500 text-sm">Pendaftaran awal dengan berbagai keuntungan biaya dan prioritas kuota kelas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gelombang 1 -->
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-lpitgreen text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-xl group-hover:border-lpitgreen/30 transition-all">
+                    <div class="flex flex-col">
+                        <h4 class="font-bold text-xl text-gray-900">Gelombang 1 (Satu)</h4>
+                        <time class="text-sm font-medium text-lpitgreen mb-3">1 Oktober - Kuota Terpenuhi</time>
+                        <p class="text-gray-500 text-sm">Pendaftaran reguler akan terus dibuka hingga kuota maksimal setiap unit sekolah terpenuhi.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= BROSUR & FOOTER GRADIENT ================= -->
+    <div class="bg-lpitdark rounded-t-[3rem] mt-10 overflow-hidden relative border-t border-white/5 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+        <!-- Dekorasi Background Gelap -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-lpitpurple/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        
+        <section id="brosur" class="relative z-10 py-20 px-4 text-center max-w-4xl mx-auto border-b border-white/10" data-aos="zoom-in">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Mulai Perjalanan Anda</h3>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">Masih ragu atau ingin mempelajari lebih detail program-program kami? Silakan unduh brosur resmi kami.</p>
+            
+            <button class="bg-white text-lpitdark font-bold py-4 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+                <i class="fas fa-download mr-2 text-lpitpurple"></i> UNDUH BROSUR LENGKAP
+            </button>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="relative z-10 text-gray-400 py-12 text-sm px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2 lg:col-span-1">
+                    <img src="assets/logo.png" alt="Logo" class="h-12 w-auto object-contain brightness-0 invert mb-4 opacity-90">
+                    <p class="opacity-80 mb-6">Sistem Pendaftaran Siswa Baru terpadu untuk meningkatkan kualitas pendidikan di LPIT Al Firdaus secara berkelanjutan.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-lpitpurple hover:text-white transition-all border border-white/10"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-lpitpurple hover:text-white transition-all border border-white/10"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-lpitpurple hover:text-white transition-all border border-white/10"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div id="kontak">
+                    <h5 class="font-bold text-white mb-6 text-base uppercase tracking-wider">Layanan CS</h5>
+                    <ul class="space-y-3">
+                        <li><a href="https://wa.me/628111" class="hover:text-lpitpurple transition-colors flex items-center gap-2"><i class="fab fa-whatsapp"></i> CS SMPIT</a></li>
+                        <li><a href="https://wa.me/628222" class="hover:text-lpitgreen transition-colors flex items-center gap-2"><i class="fab fa-whatsapp"></i> CS SDIT</a></li>
+                        <li><a href="https://wa.me/628333" class="hover:text-emerald-500 transition-colors flex items-center gap-2"><i class="fab fa-whatsapp"></i> CS RAIT</a></li>
+                        <li><a href="https://wa.me/628444" class="hover:text-pink-500 transition-colors flex items-center gap-2"><i class="fab fa-whatsapp"></i> CS KBIT</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h5 class="font-bold text-white mb-6 text-base uppercase tracking-wider">Lokasi Kami</h5>
+                    <ul class="space-y-4 opacity-90">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-lpitpurple"></i>
+                            <span>Jl. Taman Makam Pahlawan No. 10, Purwodadi, Grobogan, Jawa Tengah 58111</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-lpitpurple"></i>
+                            <span>lpit.alfirdaus@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 pt-8 border-t border-white/10 text-xs opacity-60 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 <strong>PPS LPIT Al Firdaus Purwodadi</strong>. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart text-red-500 mx-1"></i> for Education</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- AOS JS for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi Animasi Scroll
+        AOS.init({
+            once: true, // Animasi hanya berjalan 1 kali saat di-scroll
+            offset: 100, // Jarak trigger animasi
+        });
+
+        // Logika Dynamic Navbar (Ubah background saat di-scroll)
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
+                nav.classList.remove('bg-transparent', 'py-5');
+                // Mengubah warna teks menu menjadi lebih gelap saat discroll
+                nav.querySelector('.bg-white\\/80').classList.remove('shadow-sm', 'ring-1');
+                nav.querySelector('.bg-white\\/80').classList.add('bg-transparent');
+            } else {
+                nav.classList.add('bg-transparent', 'py-5');
+                nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
+                nav.querySelector('.bg-transparent').classList.add('bg-white/80', 'shadow-sm', 'ring-1');
+                nav.querySelector('.bg-transparent').classList.remove('bg-transparent');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,24 +1,39 @@
-/* Pengaturan dasar untuk kelancaran scrolling SPA */
+/* Smooth Scrolling Bawaan HTML */
 html {
     scroll-behavior: smooth;
 }
 
-/* Modifikasi tampilan Scrollbar agar cocok dengan tema LPIT */
+/* Modifikasi Scrollbar Premium */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f3f4f6; 
+    background: #f8fafc; 
 }
 ::-webkit-scrollbar-thumb {
-    background: #c4b5fd; 
-    border-radius: 5px;
+    background: #cbd5e1; 
+    border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #8b5cf6; 
+    background: #7c3aed; 
 }
 
-/* Memastikan body tidak menutupi navbar sticky */
-body {
-    scroll-padding-top: 80px; 
+/* Animasi untuk Gambar (Mengambang Naik Turun) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Animasi untuk Background Hero (Zoom Sangat Pelan) */
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.animate-slow-zoom {
+    animation: slowZoom 20s ease-in-out infinite;
 }
